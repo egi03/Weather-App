@@ -27,6 +27,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
@@ -47,6 +48,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.weatherapp.R
 import com.example.weatherapp.data.WeatherAppViewModel
+import com.example.weatherapp.ui.theme.Poppins
+import com.example.weatherapp.ui.theme.PoppinsTypography
 import com.example.weatherapp.ui.theme.WeatherAppTheme
 
 
@@ -57,14 +60,6 @@ fun WelcomeScreen(
 ) {
     var searchedCity by remember { mutableStateOf(TextFieldValue("")) }
     val previousSearches = remember { mutableStateListOf("New York", "London", "Tokyo", "New York", "London", "Tokyo", "New York", "London", "Tokyo") } // Mock data
-
-    // Get current time to determine greeting
-    val currentHour = remember { Calendar.getInstance().get(Calendar.HOUR_OF_DAY) }
-    val greeting = when(currentHour){
-        in 5..11 -> "Good morning!"
-        in 12..18 -> "Good afternoon!"
-        else -> "Good night!"
-    }
 
     val background = if (isSystemInDarkTheme()) R.drawable.background_dark else R.drawable.background_light
 
@@ -87,16 +82,20 @@ fun WelcomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = greeting,
+                text = "WeatherApp",
                 style = TextStyle(
                     color = MaterialTheme.colorScheme.onBackground,
                     fontSize = 48.sp,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Thin
                 ),
                 modifier = Modifier.padding(bottom = 24.dp)
             )
+            Image(
+                painter = painterResource(R.drawable.weather_icon),
+                contentDescription = "logo",
+                modifier = Modifier.height(130.dp)
+            )
 
-            // Corrected OutlinedTextField
             OutlinedTextField(
                 value = searchedCity,
                 onValueChange = { searchedCity = it },
