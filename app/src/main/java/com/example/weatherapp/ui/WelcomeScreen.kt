@@ -66,7 +66,7 @@ fun WelcomeScreen(
         else -> "Good night!"
     }
 
-    val background = if (isSystemInDarkTheme()) R.drawable.background_dark else R.drawable.bg_light
+    val background = if (isSystemInDarkTheme()) R.drawable.background_dark else R.drawable.background_light
 
     Box(
         modifier = Modifier.fillMaxSize()
