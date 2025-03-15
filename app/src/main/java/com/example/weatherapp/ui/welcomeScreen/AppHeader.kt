@@ -3,6 +3,7 @@ package com.example.weatherapp.ui.welcomeScreen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,8 +27,8 @@ fun AppHeader() {
         modifier = Modifier.padding(bottom = 24.dp)
     )
     Image(
-        painter = painterResource(R.drawable.weather_icon),
+        painter = painterResource(R.drawable.ic_weather),
         contentDescription = "logo",
-        modifier = Modifier.height(130.dp)
+        modifier = Modifier.size(150.dp)
     )
 }
