@@ -37,10 +37,8 @@ fun WeatherReportScreen(
 
     if(weatherData != null && forecastData != null) {
     Box(modifier = Modifier.fillMaxSize()) {
-        // Background image and gradient overlay
         BackgroundSection()
 
-        // Main content with weather details
         ContentSection(weatherData, forecastData, navController)
     }
     }
@@ -54,18 +52,6 @@ fun BackgroundSection() {
         contentDescription = "Background",
         contentScale = ContentScale.Crop,
         modifier = Modifier.fillMaxSize()
-    )
-    // Gradient overlay for improved readability
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                Brush.verticalGradient(
-                    colors = listOf(Color.Transparent, Color(0x80000000)),
-                    startY = 0f,
-                    endY = 1000f
-                )
-            )
     )
 }
 
