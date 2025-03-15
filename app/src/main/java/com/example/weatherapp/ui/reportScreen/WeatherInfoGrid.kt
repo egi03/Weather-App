@@ -15,7 +15,8 @@ import com.example.weatherapp.data.WeatherResponse
 fun WeatherInfoGrid(weatherData: WeatherResponse?) {
     val weatherInfoList = getWeatherInfoList(weatherData)
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth()
+            .padding(top=20.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         weatherInfoList.chunked(2).forEach { rowItems ->
