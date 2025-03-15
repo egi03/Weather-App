@@ -19,7 +19,8 @@ import com.example.weatherapp.ViewModels.WelcomeScreenViewModel
 fun PreviousSearchesSection(
     previousSearches: List<String>,
     navController: NavController,
-    viewModel: WelcomeScreenViewModel
+    viewModel: WelcomeScreenViewModel,
+    isOnline: Boolean
 ) {
     Text(
         text = "Previous Searches",
@@ -30,9 +31,11 @@ fun PreviousSearchesSection(
         ),
         modifier = Modifier.padding(bottom = 8.dp)
     )
-    LazyColumn(modifier = Modifier.height(300.dp)) {
+    LazyColumn(
+        modifier = if (isOnline) Modifier.height(300.dp) else Modifier.height(400.dp)
+    ) {
         items(previousSearches) { location ->
-            LocationCard(location, navController, viewModel)
+            LocationCard(location, navController, viewModel, isOnline)
         }
     }
 }
