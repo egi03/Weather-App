@@ -16,6 +16,17 @@ object GeneralHelpers {
         }
     }
 
+    fun formatDateTimeFromUnix(unixTime: Number): String {
+        return try {
+            val timeInMillis = unixTime.toLong() * 1000L
+            val date = Date(timeInMillis)
+            val dateFormat = SimpleDateFormat("dd MMM, HH:mm", Locale.getDefault())
+            dateFormat.format(date)
+        } catch (e: Exception) {
+            "--:--"
+        }
+    }
+
     fun formatDate(date: String): String {
         return try{
             val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
