@@ -40,7 +40,8 @@ fun MainContent(
         PreviousSearchesSection(
             previousSearches = previousSearches,
             navController = navController,
-            viewModel = viewModel
+            viewModel = viewModel,
+            isOnline = true
         )
     }
 }
