@@ -5,7 +5,6 @@ import android.widget.Toast
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -65,10 +64,6 @@ fun WelcomeScreen(
                 isLoading = isLoading,
                 previousSearches = previousSearches,
                 onSearch = {
-                    if (!isOnline) {
-                        Toast.makeText(context, "No internet connection", Toast.LENGTH_SHORT).show()
-                        return@MainContent
-                    }
                     coroutineScope.launch {
                         try {
                             isLoading = true
